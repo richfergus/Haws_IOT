@@ -1,6 +1,6 @@
 'use strict';
 
-
+ 
 
 var appConfig = window.appConfig || {};
 
