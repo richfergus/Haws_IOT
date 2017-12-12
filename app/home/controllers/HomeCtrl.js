@@ -13,6 +13,7 @@ app.controller("timeDataController", ["$scope", "$firebaseObject",
 
         vertexRef.on("value", function(snapshot) {
             console.log(snapshot.val());
+
             $scope.showerTests = snapshot.val();
         });
 
@@ -24,10 +25,13 @@ app.controller("HomeController", ["$scope", "$firebaseObject",
     function($scope, $firebaseObject) {
         var showerTestDT = moment().format("YYYY-MM-DD:HH:MM:sss");
         var ref = firebase.database().ref();
+
         var firebaseObj = $firebaseObject(ref).$bindTo($scope, "syncData");
+        console.log(firebaseObj);
         $scope.turnOn = function() {
             console.log('on');
             var vertexRef = ref.child('vertex');
+
             var firstNode = vertexRef.child(showerTestDT);
             firstNode.set({
                 datetime: showerTestDT,
