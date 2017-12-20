@@ -29,7 +29,8 @@ app.controller("HomeController", ["$scope", "$firebaseObject",
         var obj = $firebaseObject(ref);
 
         // var firebaseObj = $firebaseObject(ref).$bindTo($scope, "fbData");
-       
+        
+
 
             obj.$loaded().then(function() {
                 // console.log("loaded record:", obj.$id, obj);
@@ -45,23 +46,27 @@ app.controller("HomeController", ["$scope", "$firebaseObject",
 
         $scope.turnOn = function() {
             console.log('on');
-            var varText = ref.child('syncData');
+
+            var varText = ref.child('varText');
+            console.log('bla');
+
+            console.log(varText.child('tesla').path);
 
 
-            var firstNode = varText.child(showerTestDT);
+            // var firstNode = varText.child(showerTestDT);
             
-            firstNode.set({
-                datetime: dateTimeShowerTest
+            // firstNode.set({
+            //     datetime: dateTimeShowerTest
                 
-            });
-            $scope.syncData.Shower = 'on';
+            // });
+            $scope.light = 'on';
         };
 
         $scope.turnOff = function() {
              console.log('on');
             var varText = ref.child('syncData');
              console.log(varText);
-            
+
             console.log('off');
             $scope.light = 'off';
         };

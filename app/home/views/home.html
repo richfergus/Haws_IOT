@@ -2,11 +2,8 @@
 
  <div style="padding-bottom: 40px">
 
-   <span class="demo-liveupdate-1"> <span class="onoffswitch-title">Test Shower</span> <span class="onoffswitch">
-                                                <input type="checkbox" name="start_interval" class="onoffswitch-checkbox" id="start_interval">
-                                                <label class="onoffswitch-label" for="start_interval"  > 
-                                                    <span class="onoffswitch-inner" data-swchon-text="OK" data-swchoff-text="TEST"></span> 
-                                                    <span class="onoffswitch-switch"></span> </label> </span> </span>
+   <span class="demo-liveupdate-1"> 
+
 
     </div>
 
@@ -51,25 +48,35 @@
                         <div class="widget-body">
                             <!-- this is what the user will see -->
                              <div class="row">
-                                            {{syncData}}
+                                           
                                   <div class="col-sm-6">
-                                        <div ng-if="syncData.Shower == 'on'">
+
+                                   <!--  <span class="onoffswitch-title">Test Shower</span> <span class="onoffswitch">
+                                        <input type="checkbox" name="start_interval" class="onoffswitch-checkbox" id="start_interval">
+                                        <label class="onoffswitch-label" for="start_interval"  > 
+                                            <span class="onoffswitch-inner" data-swchon-text="OK" data-swchoff-text="TEST"></span> 
+                                            <span class="onoffswitch-switch"></span> 
+                                        </label> 
+                                    </span> 
+                                </span> -->
+
+                                        <div ng-if="light == 'on'">
                                             <div>
                                                  <i class="fa fa-shower fa-3x fa-fw" style="color:gold;"></i>
                                             </div>
                                             <div class="demo-btns">
                                                 <br>
-                                                <a ng-click="turnOff()" ng-model="syncData.Shower" href-void class="btn btn-default"><i class="fa fa-gear fa-lg"></i> Off</a>
+                                                <a ng-click="turnOff()" ng-model="light" href-void class="btn btn-default"><i class="fa fa-gear fa-lg"></i> Off</a>
                                                 
                                             </div>
                                         </div> 
-                                        <div ng-if="syncData.Shower == 'off'">
+                                        <div ng-if="light == 'off'">
                                             <div>
                                                 <i class="fa fa-shower fa-3x fa-fw" style="color:silver;"></i> 
                                             </div>
                                             <div class="demo-btns">
                                                 <br>
-                                                <a ng-click="turnOn()" ng-model="syncData.Shower" href-void class="btn btn-primary"><i class="fa fa-gear fa-lg"></i> On</a>
+                                                <a ng-click="turnOn()" ng-model="light" href-void class="btn btn-primary"><i class="fa fa-gear fa-lg"></i> On</a>
                                             </div>
 
                                         </div> 
