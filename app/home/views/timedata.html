@@ -10,7 +10,7 @@
             <!-- NEW WIDGET START -->
             <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <!-- Widget ID (each widget will need unique ID)-->
-                
+
 
                 <div id="widget-title-widget" data-jarvis-widget>
                     <!-- widget options:
@@ -36,21 +36,21 @@
                              <div class="row">
                                 <div class="col-sm-6">
                                     <pre>{{showerTests | json}}</pre>
-                                    <table class="table">
+                                    <table class="table table-bordered">
                                         <tr>
-                                            <td align="center">Date / Time</td>
-                                            <td align="center">Test Sucsessful</td>
-                                            <td align="center">How Recorded</td>
+                                            <td align="center" style="bold" !important>Date / Time</td>
+                                            <td align="center" style="bold" !important>Test Successful</td>
+                                            <td align="center" style="bold" !important>How Recorded</td>
                                         </tr>
                                         <tr ng-repeat="item in showerTests track by $index">
                                             <td align="center">{{item}}</td>
-                                            <td align="center">Yes</td>
+                                            <td align="center" class="success">Yes</td>
                                             <td align="center">IoT</td>
                                         </tr>
                                     </table>
                                 </div>
                             </div>
-                          
+
                         <!-- end widget content -->
                     </div>
                     <!-- end widget div -->
@@ -70,4 +70,3 @@
         <!-- end row -->
     </section>
 </div>
-	
