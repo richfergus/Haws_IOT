@@ -26,7 +26,7 @@
                     -->
                     <header>
                         <span class="widget-icon"> <i class="fa fa-chain"></i> </span>
-                        <h2>Shower Raw Data</h2>
+                        <h2>Shower Raw Data (Production Floor)</h2>
                     </header>
                     <!-- widget div-->
                     <div>
@@ -34,9 +34,14 @@
                         <div class="widget-body">
                             <!-- this is what the user will see -->
                              <div class="row">
-                                            {{syncData}}
+                                        
+                                        <h2>
+                                        Shower Light: {{light}}
+                                        </h2>   
+                                            
+                                    
                                   <div class="col-sm-6">
-                                        <div ng-if="syncData.Shower == 'on'">
+                                        <div ng-if="light == 'on'">
                                             <div>
                                                  <i class="fa fa-shower fa-3x fa-fw" style="color:gold;"></i>
                                             </div>
@@ -46,7 +51,7 @@
                                                 
                                             </div>
                                         </div> 
-                                        <div ng-if="syncData.Shower == 'off'">
+                                        <div ng-if="light == 'off'">
                                             <div>
                                                 <i class="fa fa-shower fa-3x fa-fw" style="color:silver;"></i> 
                                             </div>
