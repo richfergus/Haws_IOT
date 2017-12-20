@@ -45,29 +45,20 @@ app.controller("HomeController", ["$scope", "$firebaseObject",
         // console.log(firebaseObj);
 
         $scope.turnOn = function() {
-            console.log('on');
-
-            var varText = ref.child('varText');
-            console.log('bla');
-
-            console.log(varText.child('tesla').path);
-
-
-            // var firstNode = varText.child(showerTestDT);
-            
-            // firstNode.set({
-            //     datetime: dateTimeShowerTest
+            var showerLoc = ref.child('syncData');
+            showerLoc.set({
+                Shower: 'on'
                 
-            // });
+            });
             $scope.light = 'on';
         };
 
         $scope.turnOff = function() {
-             console.log('on');
-            var varText = ref.child('syncData');
-             console.log(varText);
-
-            console.log('off');
+            var showerLoc = ref.child('syncData');
+            showerLoc.set({
+                Shower: 'off'
+                
+            });
             $scope.light = 'off';
         };
           
