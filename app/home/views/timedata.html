@@ -1,6 +1,6 @@
 <div id="content">
 <div class="row">
-    <big-breadcrumbs items="['Shower Connections', 'Details']" icon="shower" class="col-xs-12 col-sm-7 col-md-7 col-lg-4"></big-breadcrumbs>
+    <big-breadcrumbs items="['Shower Tests']" icon="shower" class="col-xs-12 col-sm-7 col-md-7 col-lg-4"></big-breadcrumbs>
 </div>
 
     <!-- content -->
@@ -10,7 +10,7 @@
             <!-- NEW WIDGET START -->
             <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <!-- Widget ID (each widget will need unique ID)-->
-
+                
 
                 <div id="widget-title-widget" data-jarvis-widget>
                     <!-- widget options:
@@ -26,7 +26,7 @@
                     -->
                     <header>
                         <span class="widget-icon"> <i class="fa fa-chain"></i> </span>
-                        <h2>Shower Raw Data ({{testLocation}})</h2>
+                        <h2>Shower Test Data ({{testLocation}})</h2>
                     </header>
                     <!-- widget div-->
                     <div>
@@ -36,21 +36,21 @@
                              <div class="row">
                                 <div class="col-sm-6">
                                     <pre>{{showerTests | json}}</pre>
-                                    <table class="table table-bordered">
-                                        <tr>
-                                            <td align="center" style="bold" !important>Date / Time</td>
-                                            <td align="center" style="bold" !important>Test Successful</td>
-                                            <td align="center" style="bold" !important>How Recorded</td>
+                                    <table class="table">
+                                        <tr class="warning">
+                                            <td align="center"><b>Date / Time </b> </td>
+                                            <td align="center"><b>Test Successful  </b>    </td>
+                                            <td align="center"> <b>   How Recorded </b>  </td>
                                         </tr>
-                                        <tr ng-repeat="item in showerTests track by $index">
+                                        <tr class = "success" ng-repeat="item in showerTests track by $index">
                                             <td align="center">{{item}}</td>
-                                            <td align="center" class="success">Yes</td>
+                                            <td align="center">Yes</td>
                                             <td align="center">IoT</td>
                                         </tr>
                                     </table>
                                 </div>
                             </div>
-
+                          
                         <!-- end widget content -->
                     </div>
                     <!-- end widget div -->
@@ -70,3 +70,4 @@
         <!-- end row -->
     </section>
 </div>
+	
