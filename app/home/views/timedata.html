@@ -26,7 +26,7 @@
                     -->
                     <header>
                         <span class="widget-icon"> <i class="fa fa-chain"></i> </span>
-                        <h2>Shower Raw Data</h2>
+                        <h2>Shower Raw Data ({{testLocation}})</h2>
                     </header>
                     <!-- widget div-->
                     <div>
@@ -35,16 +35,17 @@
                             <!-- this is what the user will see -->
                              <div class="row">
                                 <div class="col-sm-6">
+                                    <pre>{{showerTests | json}}</pre>
                                     <table class="table">
                                         <tr>
-                                            <td>Date / Time</td>
-                                            <td>Test Sucsessful</td>
-                                            <td>How Recorded</td>
+                                            <td align="center">Date / Time</td>
+                                            <td align="center">Test Sucsessful</td>
+                                            <td align="center">How Recorded</td>
                                         </tr>
-                                        <tr ng-repeat="item in showerTests">
-                                            <td>{{item.datetime}}</td>
-                                            <td>{{item.label}}</td>
-                                            <td>IoT</td>
+                                        <tr ng-repeat="item in showerTests track by $index">
+                                            <td align="center">{{item}}</td>
+                                            <td align="center">Yes</td>
+                                            <td align="center">IoT</td>
                                         </tr>
                                     </table>
                                 </div>

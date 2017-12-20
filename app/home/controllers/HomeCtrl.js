@@ -4,17 +4,29 @@ var app = angular.module('app.home');
 
 app.controller("timeDataController", ["$scope", "$firebaseObject",
     function($scope, $firebaseObject) {
-
+       
         var ref = firebase.database().ref();
 
-        var vertexRef = ref.child('vertex');
-        // var firstNode = vertexRef.child('my first node');
+        var varText = ref.child('varText');
+        // var firstNode = varText.child('my first node');
         // $scope.syncData = $firebaseObject(ref);
+        var testData = [];
+        varText.on("value", function(snapshot) {
+            var varText = snapshot.val();
+                          //   angular.forEach(varText, function(value, index) {
+                          //           angular.forEach(value, function(x) {
+                                        
+                          //               // $scope.showerTests = x.testData;
+                          //                   testData.push(x);
+                          //       });
 
-        vertexRef.on("value", function(snapshot) {
-            console.log(snapshot.val());
+                          // });
+            // console.log('bla');
+                                            console.log(varText.tesla.testData);
 
-            $scope.showerTests = snapshot.val();
+            $scope.showerTests = varText.tesla.testData;
+            $scope.testLocation = varText.tesla.location;
+
         });
 
 
@@ -23,18 +35,21 @@ app.controller("timeDataController", ["$scope", "$firebaseObject",
 
 app.controller("HomeController", ["$scope", "$firebaseObject",
     function($scope, $firebaseObject) {
-        var showerTestDT = moment().format("YYYY-MM-DD:HH:MM:sss");
+        
+        var dateTimeShowerTest = moment().format("YYYY-MM-DD:HH:MM:sss");
         var ref = firebase.database().ref();
 
         var firebaseObj = $firebaseObject(ref).$bindTo($scope, "syncData");
         console.log(firebaseObj);
+      
+
         $scope.turnOn = function() {
             console.log('on');
-            var vertexRef = ref.child('vertex');
+            var varText = ref.child('vertex');
 
-            var firstNode = vertexRef.child(showerTestDT);
+            var firstNode = varText.child(showerTestDT);
             firstNode.set({
-                datetime: showerTestDT,
+                datetime: dateTimeShowerTest,
                 label: 'I am blue'
             });
             $scope.syncData.Shower = 'on';
