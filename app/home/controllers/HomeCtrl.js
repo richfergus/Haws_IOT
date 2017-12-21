@@ -27,9 +27,16 @@ app.controller("HomeController", ["$scope", "$firebaseObject",
         var dateTimeShowerTest = moment().format("YYYY-MM-DD:HH:MM:sss");
         var ref = firebase.database().ref();
         var obj = $firebaseObject(ref);
+       
+        var varText = ref.child('varText/tesla').path;
+        ref.on('child_added', snapshot => {
+            console.log(snapshot.val().Shower);
+       });
 
-        // var firebaseObj = $firebaseObject(ref).$bindTo($scope, "fbData");
-        
+
+        // var test = obj("varText").set('tesla');
+
+        // console.log(test);
 
 
             obj.$loaded().then(function() {
@@ -46,10 +53,12 @@ app.controller("HomeController", ["$scope", "$firebaseObject",
 
         $scope.turnOn = function() {
             var showerLoc = ref.child('syncData');
+            var varText = ref.child('varText/tesla').path;
             showerLoc.set({
                 Shower: 'on'
                 
             });
+           
             $scope.light = 'on';
         };
 
