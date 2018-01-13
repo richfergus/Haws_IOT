@@ -12,8 +12,8 @@ app.controller("timeDataController", ["$scope", "$firebaseObject",
         varText.on("value", function(snapshot) {
            
             var varText = snapshot.val();
-            $scope.showerTests = varText.tesla.testData;
-            $scope.testLocation = varText.tesla.location;
+            $scope.showerTests = varText.tesla;
+            $scope.testLocation = varText.tesla;
 
         });
 
