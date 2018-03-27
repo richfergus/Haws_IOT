@@ -78,10 +78,29 @@
 
                             </div>
                             <div class="row">
-                               <!--  <div class="col-sm-6">
-                                    <h3>Working Chart</h3>
-                                   <canvas id="showerChart" width="600" height="400"></canvas>
-                                 </div> -->
+                               <div class="col-md-12">
+                                <table ng-repeat="key in test" class="table">
+                                    <th>PSI</th>
+                                    <th>Air Temp (f)</th>
+                                    <th>Water Temp (f)</th>
+                                    <th>Time Stamp</th>
+                                    <tr ng-repeat="item in key">
+                                        <td>
+                                        {{item.psi}}
+                                        </td>
+                                         <td>
+                                        {{item.f_air}}
+                                        </td>
+                                         <td>
+                                        {{item.f_water}}
+                                        </td>
+                                         <td>
+                                         {{item.ts | date: "MM/dd/yy 'at' h:mma"}}
+                                        </td>
+                                    </tr>
+                                </table>
+                                   
+                               </div>
 
                             </div>
                         <!-- end widget content -->

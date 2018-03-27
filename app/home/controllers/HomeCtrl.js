@@ -21,20 +21,48 @@ app.controller("timeDataController", ["$scope", "$firebaseObject",
     }
 ]);
 
-app.controller("HomeController", ["$scope", "$firebaseObject",
-    function($scope, $firebaseObject) {
+app.controller("HomeController", ["$scope", "$firebaseObject", "$timeout",
+    function($scope, $firebaseObject, $timeout) {
        
+                 $timeout( function(){
+                   
+                     $scope.light = 'off';
+                   
+                
+                }, 1000 );
+
+
         var dateTimeShowerTest = moment().format("YYYY-MM-DD:HH:MM:sss");
         var ref = firebase.database().ref();
         var obj = $firebaseObject(ref);
+
+        var datatoIOT = ref.child('hawsiot');
+         datatoIOT.on("value", function(snapshot) {
+             console.log(snapshot.val());
+                $timeout( function(){
+                   
+                     $scope.light = 'on';
+                   
+                
+                }, 1000 );
+
+             $scope.test = snapshot.val();
+            
+         });
        
-        var varText = ref.child('varText/tesla').path;
+        // var varText = ref.child('varText/tesla').path;
+
+
+
         ref.on('child_added', snapshot => {
-            console.log(snapshot.val().Shower);
+            console.log('test');
+            // console.log(ref.child('hawsiot/data'));
+            // $scope.test = obj;
+            
        });
 
 
-        // var test = obj("varText").set('tesla');
+       
 
         // console.log(test);
 
