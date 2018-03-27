@@ -60,7 +60,9 @@ gulp.task('watch', function(){
 
 gulp.task('connect', function() {
     connect.server({
-        port: 8888
+        //port: 8888
+        host : '0.0.0.0',
+        port: process.env.PORT || 3000
     });
 });
 
